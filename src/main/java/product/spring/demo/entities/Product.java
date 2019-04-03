@@ -1,8 +1,21 @@
 package product.spring.demo.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 /**
@@ -25,10 +38,12 @@ public class Product implements Serializable {
 	//bi-directional many-to-one association to Category
 	@ManyToOne
 	@JoinColumn(name="idCategory")
+	@JsonBackReference
 	private Category category;
 
 	//bi-directional one-to-one association to ProductDetail
 	@OneToOne(mappedBy="product")
+	@JsonManagedReference
 	private ProductDetail productDetail;
 
 	//bi-directional many-to-many association to Order

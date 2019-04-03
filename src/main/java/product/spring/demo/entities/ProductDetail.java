@@ -1,7 +1,17 @@
 package product.spring.demo.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 /**
@@ -25,6 +35,7 @@ public class ProductDetail implements Serializable {
 	//bi-directional one-to-one association to Product
 	@OneToOne
 	@JoinColumn(name="idProduct")
+	@JsonBackReference
 	private Product product;
 
 	public ProductDetail() {
