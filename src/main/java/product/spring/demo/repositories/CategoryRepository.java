@@ -11,13 +11,6 @@ import product.spring.demo.entities.Category;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
-	final String SELECT_ALL = "SELECT c FROM Category c";
-	final String SELECT_BY_ID = "SELECT c FROM Category c WHERE c.id =:categoryId";
 
-	@Query(SELECT_ALL)
-	List<Category> findAllCategory();
-	
-	@Query(SELECT_BY_ID)
-	Category findCategoryById(@Param("categoryId") Integer id);
-	
+	List<Category> findByName(String name);
 }

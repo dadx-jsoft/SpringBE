@@ -3,6 +3,7 @@ package product.spring.demo.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -42,7 +43,7 @@ public class Product implements Serializable {
 	private Category category;
 
 	//bi-directional one-to-one association to ProductDetail
-	@OneToOne(mappedBy="product")
+	@OneToOne(mappedBy="product", cascade = CascadeType.ALL)
 	@JsonManagedReference
 	private ProductDetail productDetail;
 
