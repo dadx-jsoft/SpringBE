@@ -3,19 +3,11 @@ package product.spring.demo.vo;
 import java.io.Serializable;
 
 public class ProductVO implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	private int id;
+	private static final long serialVersionUID = 2029331617170608474L;
 	private String name;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	private int id;
+	private String price;
+	private String image;
 
 	public String getName() {
 		return name;
@@ -25,4 +17,29 @@ public class ProductVO implements Serializable {
 		this.name = name;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPrice() {
+		return price;
+	}
+
+	public void setPrice(String price) {
+		this.price = price;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 }
+
